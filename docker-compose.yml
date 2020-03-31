@@ -14,10 +14,16 @@ services:
     depends_on:
       - mysql
   mysql:
-    image: mysql:5.7
-  	environment:
-   	  - MYSQL_ROOT_PASSWORD=gogs
-   	  - MYSQL_DATABASE=gogs
+    image: "mysql:5.7"
+    container_name: "mysql"
+    restart: always
+    environment:
+   	  MYSQL_ROOT_PASSWORD: gogs
+      MYSQL_DATABASE: gogs
+      MYSQL_USER: gogs
+      MYSQL_PASSWORD: gogs
+    ports:
+      - "3306:3306"
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/conf:/etc/mysql/conf.d
