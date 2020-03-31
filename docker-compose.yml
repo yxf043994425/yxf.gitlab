@@ -1,14 +1,11 @@
 version: '2'
 services:
-  gitlab:
-    image: "gitlab/gitlab-ce:latest"
-    container_name: "gitlab"
+  gogs:
+    image: "gogs/gogs:latest"
+    container_name: "gogs"
     restart: always
     ports:
-      - "8080:80"
-      - "8443:443"
       - "8022:22"
+      - "3000:3000"
     volumes:
-      - ./docker/gitlab/conf:/etc/gitlab
-      - ./docker/gitlab/log:/var/log/gitlab
-      - ./docker/gitlab/opt:/var/opt/gitlab
+      - ./docker/gogs/data:/data
