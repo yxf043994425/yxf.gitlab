@@ -18,7 +18,7 @@ services:
     container_name: "mysql"
     restart: always
     environment:
-   	  MYSQL_ROOT_PASSWORD: gogs
+      MYSQL_ROOT_PASSWORD: gogs
       MYSQL_DATABASE: gogs
       MYSQL_USER: gogs
       MYSQL_PASSWORD: gogs
