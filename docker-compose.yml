@@ -27,3 +27,13 @@ services:
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/conf:/etc/mysql/conf.d
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: bind
+    source: /home/yangxufeng/yxf.gitlab/docker/jenkins/home
+    target: /var/jenkins_home
